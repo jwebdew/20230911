@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>탭메뉴 + 콘텐츠</title>
+    <link href="css/048.css" rel="stylesheet" />
+    
+    <!-- script 시작 -->
+    <script>
+        //문서(body안) 읽은 다음에 스크립트 실행
+        window.onload = function(){
+            let best = document.getElementsByClassName('best')[0];
+            let menuBtn = best.getElementsByTagName('li');
+            let bestList = best.getElementsByClassName('list');
+
+            for(let i = 0; i < menuBtn.length; i++) {
+                menuBtn[i].onclick = function(){
+                    //bestList(.list)한테 클래스명 on 추가 삭제
+                    bestList[0].classList.remove('on');
+                    bestList[1].classList.remove('on');
+
+                    bestList[i].classList.add('on');
+
+                    //menuBtn(li)한테 클래스명 on 추가 삭제
+                    menuBtn[0].classList.remove('on');
+                    menuBtn[1].classList.remove('on');
+
+                    menuBtn[i].classList.add('on');
+                    
+                }
+            }//for end
+        }//window.onload end
+    </script>
+</head>
+<body>
+    <section class="best">
+        <div class="inner">
+            <h3>best sellers</h3>
+            <ul class="best_menu">
+                <li class="on">전체</li>
+                <li>클렌징</li>
+            </ul><!-- .best_menu end -->
+
+            <div class="list on">
+                <div class="item">
+                    <figure>
+                        <img src="img/마녀공장/1650_main_019.jpg" alt="" />
+                    </figure>
+                    <div class="text">
+                        <h4>갈라토미 나이아신 에센스 50ml</h4>
+                        <div class="price">
+                            <p>29,000원</p>
+                            <div>
+                                <strong>18,800원</strong>
+                                <span>35%</span>
+                            </div>
+                        </div><!-- .price end -->
+                    </div><!-- .text end -->
+                </div><!-- .item end -->
+
+                <div class="item">
+                    <figure>
+                        <img src="img/마녀공장/1512_main_028.png" alt="" />
+                    </figure>
+                    <div class="text">
+                        <h4>퓨어 클렌징 오일 200ml</h4>
+                        <div class="price">
+                            <p>29,000원</p>
+                            <div>
+                                <strong>17,400원</strong>
+                                <span>40%</span>
+                            </div>
+                        </div><!-- .price end -->
+                    </div><!-- .text end -->
+                </div><!-- .item end -->
+
+                <div class="item">
+                    <figure>
+                        <img src="img/마녀공장/1709_main_058.jpg" alt="" />
+                    </figure>
+                    <div class="text">
+                        <h4>비피다 바이옴 콤플렉스 앰플 50ml</h4>
+                        <div class="price">
+                            <p>35,000원</p>
+                            <div>
+                                <strong>22,600원</strong>
+                                <span>35%</span>
+                            </div>
+                        </div><!-- .price end -->
+                    </div><!-- .text end -->
+                </div><!-- .item end -->
+
+                <div class="item">
+                    <figure>
+                        <img src="img/마녀공장/830_main_054.png" alt="" />
+                    </figure>
+                    <div class="text">
+                        <h4>퓨어&딥 클렌징 폼 200ml</h4>
+                        <div class="price">
+                            <p>18,000원</p>
+                            <div>
+                                <strong>11,000원</strong>
+                                <span>38%</span>
+                            </div>
+                        </div><!-- .price end -->
+                    </div><!-- .text end -->
+                </div><!-- .item end -->
+
+            </div><!-- list end / 전체 -->
+
+            <div class="list">
+                <div class="item">
+                    <figure>
+                        <img src="img/마녀공장/1512_main_028.png"" alt="" />
+                    </figure>
+                    <div class="text">
+                        <h4>퓨터 클렌징 오일 200ml</h4>
+                        <div class="price">
+                            <p>29,000원</p>
+                            <div>
+                                <strong>18,800원</strong>
+                                <span>35%</span>
+                            </div>
+                        </div><!-- .price end -->
+                    </div><!-- .text end -->
+                </div><!-- .item end -->
+
+                <div class="item">
+                    <figure>
+                        <img src="img/마녀공장/830_main_054.png" alt="" />
+                    </figure>
+                    <div class="text">
+                        <h4>퓨어&딥 클렌징 폼 200ml</h4>
+                        <div class="price">
+                            <p>18,000원</p>
+                            <div>
+                                <strong>11,000원</strong>
+                                <span>38%</span>
+                            </div>
+                        </div><!-- .price end -->
+                    </div><!-- .text end -->
+                </div><!-- .item end -->
+
+                <div class="item">
+                    <figure>
+                        <img src="img/마녀공장/1280_main_042.png" alt="" />
+                    </figure>
+                    <div class="text">
+                        <h4>블랙헤드 퓨어 클렌징 오일 킬패드 50매</h4>
+                        <div class="price">
+                            <p>20,000원</p>
+                            <div>
+                                <strong>15,000원</strong>
+                                <span>25%</span>
+                            </div>
+                        </div><!-- .price end -->
+                    </div><!-- .text end -->
+                </div><!-- .item end -->
+
+                <div class="item">
+                    <figure>
+                        <img src="img/마녀공장/1875_main_042.png" alt="" />
+                    </figure>
+                    <div class="text">
+                        <h4>소다폼 150ml</h4>
+                        <div class="price">
+                            <p>20,000원</p>
+                            <div>
+                                <strong>12,000원</strong>
+                                <span>40%</span>
+                            </div>
+                        </div><!-- .price end -->
+                    </div><!-- .text end -->
+                </div><!-- .item end -->
+
+            </div><!-- list end / 클렌징 -->
+
+
+        </div><!-- .inner end -->
+    </section><!-- best end -->
+
+</body>
+</html>

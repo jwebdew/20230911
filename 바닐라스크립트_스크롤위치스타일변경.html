@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @charset "utf-8";
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        body {
+            line-height: 1;
+            color: #333;
+        }
+
+        header.on {
+            width: 100%;
+            height: 70px;
+            line-height: 70px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* header에게 .on이 붙으면 
+height : 70px 
+line-height : ?
+position:fiex
+투명한 배경컬러 적용 */
+
+        header {
+            width: 100%;
+            height: 100px;
+            line-height: 100px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9;
+            background-color: rgba(255, 255, 255, 0.6);
+            transition: all 1s;
+
+        }
+
+        header .inner {
+            max-width: 1440px;
+            width: calc(100% - 40px);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        header .inner nav ul li {
+            display: inline-block;
+            margin-left: 20px;
+        }
+
+        header .inner nav ul li.on {
+            color: teal;
+        }
+
+        .main_visual {
+            /* height: 100vh; */
+            /* height: header의 높이값을 뺀 값 */
+            height: calc(100vh);
+        }
+
+        .main_visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+
+        }
+
+        .about {
+            background: url('img/img01.jpg') center center / cover no-repeat;
+            background-attachment: fixed;
+        }
+
+        .web {
+            background: url('img/img05.jpg') center center / cover no-repeat;
+            background-attachment: fixed;
+        }
+
+        .design {
+            background: url('img/img06.jpg') center center / cover no-repeat;
+            background-attachment: fixed;
+        }
+
+        .resume {
+            background: url('img/img08.jpg') center center / cover no-repeat;
+            background-attachment: fixed;
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px 0;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            //alert()
+            let contIndex = document.querySelectorAll('.cont');
+            let gnbIndex = document.querySelectorAll('li');
+            let hdTop = document.querySelector('header');
+
+            let cont1 = document.querySelector('.about');
+            let cont2 = document.querySelector('.web');
+            let cont3 = document.querySelector('.design');
+
+
+
+            window.onscroll = function () {
+
+                function gnbClassRemove() {
+                    gnbIndex.forEach(function (item) {
+                        item.classList.remove('on')
+                    })
+                }
+
+                let scrollTop = window.scrollY;
+                //window.scrollY 스크롤바값
+                //console.log(hdTop.offsetTop)
+                if (hdTop.offsetTop < scrollTop) {
+                    hdTop.classList.add('on')
+                } else {
+                    hdTop.classList.remove('on')
+                }
+                //console.log(cont1.offsetTop)
+                //console.log(scrollTop)
+                //console.log(gnbClassRemove())
+                for (let i = 0; i < contIndex.length; i++) {
+                    console.log(document.querySelector('.main_visual').clientHeight)
+                    
+                    
+                    if (contIndex[i].offsetTop - 200 < scrollTop) {
+                        gnbClassRemove()
+                        gnbIndex[i].classList.add('on')
+
+                    } else if (document.querySelector('.main_visual').clientHeight > scrollTop){
+                        gnbClassRemove()
+                    }
+                }
+
+                // for(let i = 0; i >= gnbIndex.length; i++) {
+                //     i = 0;
+                //     gnbIndex[i].classList.add('on')
+                // }
+            }//scroll()
+
+            gnbIndex.forEach(function(e, index){
+                // console.log(e);
+                // console.log(index);
+                console.log(index, e);
+                //e => 엘리먼트
+                //index => 인텍스
+                e.classList.add('on' + index)
+            })
+            for (let i = 0; i < contIndex.length; i++) { 
+                gnbIndex[i].addEventListener('click', function(e){
+                    console.log(contIndex[i].offsetTop)
+                    window.scrollTo({
+                        top : contIndex[i].offsetTop, behavior: "smooth"
+                    })
+                    //scrollTo 스크롤 이동하기
+                    //top, left
+                    //behavior 스크롤 애니메이션 설정(auto : 기본값, smooth : 부드럽게 이동)
+                    
+                    /* gnbIndex[i].animate([
+                        {scrollY : contIndex[i].offsetTop}
+                    ], 1000);//animate */
+                })
+            }
+
+            
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="inner">
+            <h1>
+                <a href="#">SJ</a>
+            </h1>
+            <nav>
+                <ul>
+                    <li>about</li>
+                    <li>web/app</li>
+                    <li>design</li>
+                    <li>resume</li>
+                </ul>
+            </nav>
+        </div><!-- .inner end -->
+    </header>
+    <section class="main_visual">
+        <img src="img/img02.jpg" alt="" />
+    </section><!-- main_visual end -->
+
+    <section class="about cont">
+        <h3>about</h3>
+    </section><!-- .about end -->
+
+    <section class="web cont">
+        <h3>web/app</h3>
+    </section><!-- web end -->
+
+    <section class="design cont">
+        <h3>design</h3>
+    </section><!-- design end -->
+
+    <section class="resume cont">
+        <h3>resume</h3>
+    </section><!-- .resume end -->
+
+    <footer>
+        <p>Copyright 2023 웹디자이너 ooo.All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

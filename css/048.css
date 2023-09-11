@@ -1,0 +1,81 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+body {
+    color: #333;
+    line-height: 1;
+    font-family: 'Pretendard-Regular';
+}
+
+.best .inner {
+    width: 1440px;
+    margin: 100px auto;
+}
+.best .inner h3 {
+    font-size: 50px;
+    margin-bottom: 40px;
+}
+.best .inner .best_menu li {
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+.best .inner .best_menu li.on {
+    color: #ff0000;
+}
+.best .inner .list {
+    /* display: flex; */
+    display: none;
+    justify-content: space-between;
+}
+.best .inner .list.on {
+    display: flex;
+}
+
+.best .inner .list .item {
+    width: calc(100% / 4 - 20px);
+}
+.best .inner .list .item figure {
+    width: 100%;
+    height: 350px;
+}
+.best .inner .list .item figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.best .inner .list .item .text h4 {
+    font-size: 25px;
+    margin: 20px 0 30px;
+}
+.best .inner .list .item .text .price {
+    display: flex;
+    justify-content: space-between;
+    font-size: 22px;
+}
+.best .inner .list .item .text .price p {
+    text-decoration: line-through;
+    /* 취소선 */
+}
+.best .inner .list .item .text .price span {
+    color: #ff0000;
+    font-weight: bold;
+    margin-left: 15px;
+}
